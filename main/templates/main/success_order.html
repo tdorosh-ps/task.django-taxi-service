@@ -1,0 +1,6 @@
+{% extends "main/base.html" %}
+{% block meta_title %} Success order {% endblock meta_title %}
+{% block title_page %} <h3>Success order</h3> {% endblock title_page %}
+{% block content %}
+    <p>Order # {{ order.id }} was created successfully. Your car is {{ order.car }}</p>
+{% endblock content %}

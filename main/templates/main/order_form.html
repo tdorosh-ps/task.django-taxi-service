@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% block meta_title %} Create Order {% endblock meta_title %}
+{% block title_page %} <h3>Create Order</h3> {% endblock title_page %}
+{% block content %}
+    {% if message %}
+        <p>There are no available cars at the moment. Please try to order a bit later.</p>
+    {% endif %}
+    <p>All form fields are required.</p>
+    <form action="{% url 'create-order' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock content %}

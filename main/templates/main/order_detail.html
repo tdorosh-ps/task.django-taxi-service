@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+{% block meta_title %} Order Detail {% endblock meta_title %}
+{% block title_page %} <h3>Order Detail </h3>{% endblock title_page %}
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Telephone</th>
+                <th>Order Adress</th>
+                <th>Destination Adress</th>
+                <th>Desired Time</th>
+                <th>Car</th>
+                <th>Create Date and Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ order.client }}</td>
+                <td>{{ order.telephone }}</td>
+                <td>{{ order.order_adress }}</td>
+                <td>{{ order.destination_adress }}</td>
+                <td>{{ order.desired_time }}</td>
+                <td><a href="{% url 'car-detail' order.car.id %}">{{ order.car }}</a></td>
+                <td>{{ order.create_datetime }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock content %}

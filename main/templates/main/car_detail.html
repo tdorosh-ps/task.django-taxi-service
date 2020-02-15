@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+{% block meta_title %} Car Detail {% endblock meta_title %}
+{% block title_page %} <h3>Car Detail </h3>{% endblock title_page %}
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Driver</th>
+                <th>Is Available</th>
+                <th>Set Available</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ car.model }}</td>
+                <td>{{ car.driver }}</td>
+                <td>{{ car.is_available }}</td>
+                <td><a href="{% url 'car-set-available' car.id %}" {% if car.is_available %} disabled {% endif %}>Set available</a></td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock content %}

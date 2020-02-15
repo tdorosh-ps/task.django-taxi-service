@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+{% block meta_title %} Login {% endblock meta_title %}
+{% block title_page %} <h3>Login</h3> {% endblock title_page %}
+{% block content %}
+    {% if error %}
+        {{ error }}
+    {% endif %}
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+    
+        <div>
+            <label for="login">Your Username</label>
+            <input type="text" id="login" name="username"> 
+        </div>
+        
+        <div>
+            <label for="password">Your Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+    
+        <button type="submit">Login</button>
+    </form>
+{% endblock content %}
